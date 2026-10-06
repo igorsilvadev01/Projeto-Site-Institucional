@@ -1,0 +1,39 @@
+{
+  "name": "privacy-platform-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "acesso": "node --env-file-if-exists=.env.local scripts/definir-acesso.mjs",
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "producao:verificar": "node --env-file-if-exists=.env.production scripts/verificar-producao.mjs",
+    "producao:chave": "node --env-file-if-exists=.env.local scripts/gerar-chave.mjs",
+    "operacoes": "node --env-file-if-exists=.env.local scripts/operacoes.mjs",
+    "backup": "node --env-file-if-exists=.env.local scripts/backup.mjs",
+    "mfa:redefinir": "node --env-file-if-exists=.env.local scripts/redefinir-mfa.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "test:browser": "playwright test",
+    "exportar:contatos": "node --env-file-if-exists=.env.local scripts/exportar-dados.mjs contatos",
+    "exportar:newsletter": "node --env-file-if-exists=.env.local scripts/exportar-dados.mjs newsletter",
+    "emails:local": "node --env-file-if-exists=.env.local scripts/emails-locais.mjs",
+    "smtp:testar": "node --env-file-if-exists=.env.local scripts/testar-smtp.mjs",
+    "portfolio:verificar": "node scripts/check-portfolio.mjs"
+  },
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "dependencies": {
+    "next": "^16.0.0",
+    "nodemailer": "^10.0.13",
+    "otplib": "^13.5.0",
+    "qrcode": "^1.5.4",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.63.0"
+  },
+  "description": "Versão anonimizada para portfólio do primeiro projeto conquistado: plataforma de privacidade, governança e segurança."
+}

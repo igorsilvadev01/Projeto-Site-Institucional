@@ -1,0 +1,74 @@
+/* Navegação do App Router usa ViewTransition; recargas e envios que navegam
+   para outro documento também recebem a transição nos navegadores compatíveis. */
+@view-transition { navigation:auto; }
+.page-motion { view-transition-name:site-page; }
+.page-motion[data-page-kind="marketing"] { view-transition-class:motion-marketing; }
+.page-motion[data-page-kind="learning"] { view-transition-class:motion-learning; }
+.page-motion[data-page-kind="form"] { view-transition-class:motion-form; }
+.page-motion[data-page-kind="workspace"] { view-transition-class:motion-workspace; }
+.page-motion[data-page-kind="report"] { view-transition-class:motion-report; }
+.page-motion[data-page-kind="reading"] { view-transition-class:motion-reading; }
+.site-header { view-transition-name:site-navigation; }
+.site-footer { view-transition-name:site-footer; }
+
+::view-transition { pointer-events:none; }
+::view-transition-group(root),
+::view-transition-old(root),
+::view-transition-new(root),
+::view-transition-group(site-navigation),
+::view-transition-new(site-navigation),
+::view-transition-group(site-footer),
+::view-transition-new(site-footer) { animation:none; }
+::view-transition-old(site-navigation),
+::view-transition-old(site-footer) { display:none; }
+::view-transition-group(site-navigation) { z-index:10; }
+
+/* A troca começa assim que o destino está pronto, sem temporizadores ou
+   bloqueios dos links. A saída é breve e o novo conteúdo chega suavemente. */
+::view-transition-group(site-page) { animation-duration:320ms; animation-timing-function:cubic-bezier(.22,1,.36,1); }
+::view-transition-old(site-page) { animation:140ms ease-out both page-leave; mix-blend-mode:normal; }
+::view-transition-new(site-page) { animation:320ms cubic-bezier(.22,1,.36,1) both page-arrive; mix-blend-mode:normal; }
+::view-transition-new(.motion-marketing) { animation-name:page-arrive; }
+::view-transition-new(.motion-learning) { animation-name:page-discover; }
+::view-transition-new(.motion-form) { animation-name:page-focus; animation-duration:260ms; }
+::view-transition-new(.motion-workspace) { animation-name:page-workspace; animation-duration:240ms; }
+::view-transition-new(.motion-report),
+::view-transition-new(.motion-reading) { animation-name:page-read; animation-duration:240ms; }
+
+@keyframes page-leave { from { opacity:1; } to { opacity:0; } }
+@keyframes page-arrive { from { opacity:0; transform:translateY(14px); } to { opacity:1; transform:none; } }
+@keyframes page-discover { from { opacity:0; transform:translateX(18px); } to { opacity:1; transform:none; } }
+@keyframes page-focus { from { opacity:0; transform:translateY(6px) scale(.995); } to { opacity:1; transform:none; } }
+@keyframes page-workspace { from { opacity:0; transform:translateY(5px); } to { opacity:1; transform:none; } }
+@keyframes page-read { from { opacity:0; } to { opacity:1; } }
+
+/* Entrada de conteúdo também funciona no primeiro carregamento e em browsers
+   sem View Transitions. Só a apresentação inicial se move, não a página toda. */
+.page-motion :is(.m3-main,.page-hero__inner>div:first-child,.auth-intro,.admin-header,.account-heading,.report-hero) { animation:420ms cubic-bezier(.22,1,.36,1) both content-arrive; }
+.page-motion :is(.m3-aside,.page-hero__aside) { animation:460ms cubic-bezier(.22,1,.36,1) 60ms both content-arrive; }
+.page-motion[data-page-kind="form"] .auth-card { animation:360ms cubic-bezier(.22,1,.36,1) 40ms both content-arrive; }
+.page-motion[data-page-kind="workspace"] .admin-metric { animation:320ms ease-out both content-arrive; }
+.page-motion[data-page-kind="workspace"] .admin-metric:nth-child(2) { animation-delay:35ms; }
+.page-motion[data-page-kind="workspace"] .admin-metric:nth-child(3) { animation-delay:70ms; }
+.page-motion[data-page-kind="workspace"] .admin-metric:nth-child(4) { animation-delay:105ms; }
+.page-motion[data-page-kind="learning"] .topic-tags a { animation:360ms ease-out both content-arrive; }
+.page-motion[data-page-kind="learning"] .topic-tags a:nth-child(2) { animation-delay:30ms; }
+.page-motion[data-page-kind="learning"] .topic-tags a:nth-child(3) { animation-delay:60ms; }
+.page-motion[data-page-kind="learning"] .topic-tags a:nth-child(4) { animation-delay:90ms; }
+.page-motion[data-page-kind="reading"] .page-hero__inner>div:first-child,
+.page-motion[data-page-kind="report"] .report-hero { animation-name:page-read; }
+@keyframes content-arrive { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:none; } }
+
+@media (max-width:760px) {
+  ::view-transition-group(site-page),::view-transition-new(site-page) { animation-duration:260ms; }
+  ::view-transition-new(.motion-learning) { animation-name:page-arrive; }
+}
+@media (prefers-reduced-motion:reduce) {
+  @view-transition { navigation:none; }
+  .page-motion,.page-motion *,
+  ::view-transition-group(*),::view-transition-image-pair(*),
+  ::view-transition-old(*),::view-transition-new(*) { animation:none !important; transition:none !important; }
+}
+@media print {
+  .page-motion,.page-motion * { animation:none !important; }
+}

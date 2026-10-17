@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Demonstração pública da Plataforma de Privacidade e Governança.">
+  <title>Plataforma de Privacidade — Demonstração</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="demo-banner">Demonstração de portfólio · dados fictícios · sem armazenamento externo</div>
+  <header class="site-header">
+    <a class="brand" href="#inicio"><span aria-hidden="true">◇</span> PRIVACIDADE<span>+</span></a>
+    <button class="menu" aria-label="Abrir menu" aria-expanded="false">Menu</button>
+    <nav><a href="#servicos">Serviços</a><a href="#avaliacao">Avaliação</a><a href="#painel">Painel</a><a href="#contato">Contato</a></nav>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div>
+        <p class="eyebrow">Governança · Privacidade · Segurança</p>
+        <h1>Decisões mais seguras começam com dados bem cuidados.</h1>
+        <p class="lead">Uma experiência digital para organizar avaliações de terceiros, planos de ação e práticas de conformidade.</p>
+        <div class="actions"><a class="button primary" href="#avaliacao">Iniciar avaliação demonstrativa</a><a class="button ghost" href="#painel">Conhecer o painel</a></div>
+        <ul class="trust"><li>LGPD</li><li>Gestão de riscos</li><li>Relatórios claros</li></ul>
+      </div>
+      <div class="hero-card">
+        <span class="status">Ambiente demonstrativo</span>
+        <strong>Visão executiva</strong>
+        <div class="score-ring"><span>82</span><small>/ 100</small></div>
+        <p>Maturidade geral</p>
+        <div class="bars"><i style="--value:88%"></i><i style="--value:76%"></i><i style="--value:91%"></i></div>
+      </div>
+    </section>
+
+    <section id="servicos" class="section">
+      <p class="eyebrow">Frentes de atuação</p><h2>Privacidade transformada em rotina</h2>
+      <div class="cards">
+        <article><b>01</b><h3>Diagnóstico de privacidade</h3><p>Mapeamento de riscos, controles e prioridades em uma jornada orientada.</p></article>
+        <article><b>02</b><h3>Avaliação de terceiros</h3><p>Questionários, evidências e classificação para apoiar decisões de contratação.</p></article>
+        <article><b>03</b><h3>Plano de ação</h3><p>Recomendações objetivas, responsáveis e acompanhamento de evolução.</p></article>
+      </div>
+    </section>
+
+    <section id="avaliacao" class="section assessment">
+      <div><p class="eyebrow">Experimente</p><h2>Avaliação rápida de maturidade</h2><p>Responda às quatro perguntas. O resultado é calculado somente neste navegador.</p></div>
+      <form id="assessment-form">
+        <fieldset><legend>1. Existe um responsável formal por privacidade?</legend><label><input type="radio" name="q1" value="25" required> Sim, com atribuições definidas</label><label><input type="radio" name="q1" value="10"> Parcialmente</label><label><input type="radio" name="q1" value="0"> Ainda não</label></fieldset>
+        <fieldset><legend>2. Os dados pessoais tratados estão inventariados?</legend><label><input type="radio" name="q2" value="25" required> Sim, e o inventário é atualizado</label><label><input type="radio" name="q2" value="10"> Em construção</label><label><input type="radio" name="q2" value="0"> Não</label></fieldset>
+        <fieldset><legend>3. Fornecedores são avaliados antes da contratação?</legend><label><input type="radio" name="q3" value="25" required> Sempre</label><label><input type="radio" name="q3" value="10"> Em casos críticos</label><label><input type="radio" name="q3" value="0"> Não</label></fieldset>
+        <fieldset><legend>4. Existe um plano de resposta a incidentes?</legend><label><input type="radio" name="q4" value="25" required> Sim, testado periodicamente</label><label><input type="radio" name="q4" value="10"> Existe, mas não foi testado</label><label><input type="radio" name="q4" value="0"> Não</label></fieldset>
+        <button class="button primary" type="submit">Gerar resultado</button>
+      </form>
+      <div id="result" class="result" hidden aria-live="polite"></div>
+    </section>
+
+    <section id="painel" class="section dashboard">
+      <div><p class="eyebrow">Área autenticada</p><h2>Uma visão única para acompanhar riscos e ações</h2><p>Esta prévia reproduz a experiência visual do projeto original anonimizado. Login, e-mail, anexos e banco de dados permanecem desativados na demonstração pública.</p></div>
+      <img src="assets/home-desktop.png" alt="Página inicial da plataforma em desktop">
+    </section>
+
+    <section id="contato" class="section contact">
+      <p class="eyebrow">Projeto demonstrativo</p><h2>Quer conhecer a implementação?</h2>
+      <p>Explore o código-fonte, os testes e o estudo de caso no GitHub.</p>
+      <a class="button primary" href="https://github.com/igorsilvadev01/Projeto-Site-Institucional">Ver repositório</a>
+    </section>
+  </main>
+  <footer>Projeto anonimizado para portfólio · Desenvolvido por Igor Silva</footer>
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,5 +1,7 @@
 # Plataforma de Privacidade — primeiro projeto
 
+[🚀 Abrir demonstração online](https://igorsilvadev01.github.io/Projeto-Site-Institucional/)
+
 Uma plataforma web com páginas institucionais, avaliação de terceiros, relatórios e áreas autenticadas. Esta é a **versão anonimizada para portfólio do primeiro projeto que conquistamos**, preparada para apresentar o trabalho e compartilhar o código sem divulgar a identidade ou a operação do cliente.
 
 O projeto nasceu de uma necessidade real: organizar serviços de governança, privacidade e segurança em uma experiência clara, responsiva e funcional. A versão pública utiliza uma apresentação neutra, textos demonstrativos e configurações independentes.

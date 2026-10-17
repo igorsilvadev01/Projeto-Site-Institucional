@@ -25,6 +25,8 @@ jobs:
           cp demo/index.html demo/styles.css demo/app.js public-demo/
           cp docs/images/home-desktop.png public-demo/assets/
       - uses: actions/configure-pages@v5
+        with:
+          enablement: true
       - uses: actions/upload-pages-artifact@v3
         with:
           path: public-demo
